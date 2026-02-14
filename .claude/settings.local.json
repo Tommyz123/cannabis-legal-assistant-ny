@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(WIN_PYTHON=\"/mnt/c/Users/zhi89/Desktop/Cannabis_Law_Assistant/venv/Scripts/python.exe\")",
+      "Bash(PYTHONIOENCODING=utf-8 \"$WIN_PYTHON\":*)",
+      "Bash(ls:*)",
+      "Bash(PYTHONIOENCODING=utf-8 \"$WIN_PYTHON\" -c:*)",
+      "Bash(source:*)",
+      "Bash(python main.py:*)",
+      "Bash(./venv/Scripts/python.exe:*)"
+    ]
+  }
+}
