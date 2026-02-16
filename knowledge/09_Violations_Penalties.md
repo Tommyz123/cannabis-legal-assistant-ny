@@ -81,14 +81,18 @@
 - Manipulation of BioTrack/Metrc system data
 - Major safety violations causing personal injury
 - Money laundering or other financial crimes
-- Unlicensed operation (without OCM license)
+- Unlicensed operation (without OCM license) — see Section 1.4 for specific unlicensed-operation penalty structure
 
-**Penalty Range:**
+**Penalty Range (for licensed operators committing criminal acts):**
 - Fines: $100,000 - $1,000,000+ (depending on case severity)
 - Immediate license revocation
 - Cannabis industry participation ban: 3-10 years or permanent
 - Product recall (removal from all retail shelves)
 - Criminal prosecution: Possible imprisonment
+
+**Important:** For businesses operating WITHOUT any OCM license, the primary enforcement mechanism is
+the **Padlock Order** and daily fines ($10,000–$40,000/day). See Section 1.4 (Unlicensed Operation Violations)
+for the complete penalty structure specific to unlicensed operators.
 
 **Major Case:**
 - **Omnium Canna Case:** OCM seeking license revocation, $1,000,000 fine, 3-year ban from New York cannabis industry, and recall of all Omnium products from retail shelves.
@@ -114,6 +118,14 @@
 - Emergency closure order
 - Product seizure
 - Criminal prosecution referral
+
+**Padlock Order Explained:**
+A Padlock Order is an emergency store closure order issued under OCM enforcement authority.
+It allows authorities to physically padlock and seal an unlicensed cannabis store immediately upon discovery.
+New York City's **Operation Padlock** is a multi-agency enforcement action (OCM + Sheriff + NYPD + FDNY)
+specifically targeting unlicensed cannabis retailers. Since the FY 2025 budget expansion, padlock powers
+have been significantly enhanced. Fine escalation for unlicensed operations:
+$10,000/day → up to $40,000/day after a cease-and-desist order is issued.
 
 **Regulatory Basis:** FY 2025 Budget Extension Law, OCM and Local Government Enforcement Powers
 

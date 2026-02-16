@@ -1,18 +1,21 @@
 # CLAUDE.md
 
 ## 项目初始化
-- 新项目第一次使用时，自动执行以下操作：
-  1. 在项目根目录创建 `planning/` 文件夹
-  2. 在项目根目录创建 `reports/` 文件夹
-  3. 将 context.md、logging.md、PROJECT_PLAN.md、TODOLIST.md 放入 `planning/`
-  4. CLAUDE.md 和 agents.md 保留在项目根目录
-  5. reports/ 用于存放 PROJECT_SUMMARY.md 等总结性报告
-- 初始化完成后立即填写 planning/context.md 的项目简介、技术栈、环境配置区块
+- 新项目首次使用：创建 `planning/`（存放 context.md、logging.md、PROJECT_PLAN.md、TODOLIST.md）和 `reports/`（存放总结报告）
+- 初始化后立即填写 planning/context.md 的项目简介、技术栈、环境配置区块
 
 ## 启动流程
 - 新对话必须按顺序读取：CLAUDE.md → planning/context.md
 - 禁止未读取以上文件就扫描整个项目代码
 - 通过 planning/context.md 定位目标文件，不要全项目扫描
+
+## 常用命令
+- 运行（交互模式）：`venv/Scripts/python.exe main.py`
+- 运行（单次查询）：`venv/Scripts/python.exe main.py "问题"`
+- 测试（全部）：`venv/Scripts/python.exe -m pytest tests/ -v`
+- 测试（E2E）：`venv/Scripts/python.exe -m pytest tests/test_realenv.py -v -s`
+- 评估：`venv/Scripts/python.exe eval_accuracy.py [--rounds N]`
+- 安装包：`venv/Scripts/pip.exe install [包名]`
 
 ## 计划文档（按需读取）
 - 计划文档指 planning/PROJECT_PLAN_v1.md（项目规划）和 planning/TODOLIST.md（任务清单）
@@ -66,9 +69,8 @@
 - 开发文档（CLAUDE.md、planning/context.md、planning/logging.md 等）使用中文
 
 ## 开发环境
-- 所有开发、测试、运行操作必须在虚拟环境中执行，禁止使用全局环境
-- 禁止在全局环境中安装包
-- 具体激活方式与路径参见 planning/context.md"环境配置"区块
+- 项目根目录存在 `venv/` 时，所有 Python 命令自动使用 `venv/Scripts/python.exe`，无需提醒
+- 安装包使用 `venv/Scripts/pip.exe`，禁止全局安装
 
 ## 开发行为
 - 先讨论方案，等我确认后再执行代码

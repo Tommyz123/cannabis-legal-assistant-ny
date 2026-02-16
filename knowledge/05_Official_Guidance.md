@@ -98,10 +98,11 @@
 
 #### NYC Application Process:
 - OCM license (state)
-- NYC Department of Consumer and Worker Protection (DCWP) registration
 - Certificate of Occupancy (DOB)
 - Fire Department inspection
 - Health Department clearance (if applicable)
+
+**Note:** DCWP does not issue cannabis licenses and does not require a separate cannabis registration. DCWP's role is joint enforcement inspections, consumer protection oversight, and labor protection.
 
 ### 4. Operational Guidance
 
@@ -187,9 +188,12 @@ OCM regulations require 500-foot distance from schools. Initial regulatory langu
 ## NYC-Specific Guidance Summary
 
 ### NYC Department of Consumer and Worker Protection (DCWP):
-- Issues cannabis retail licenses at city level
-- Conducts inspections for compliance with NYC rules
-- Handles complaints and violations
+- Does **not** issue cannabis retail licenses (licenses issued exclusively by OCM at state level)
+- Does **not** require a separate DCWP cannabis registration
+- Participates in joint enforcement inspections (with OCM, Sheriff, NYPD)
+- Oversees consumer protection compliance (refund policy, price transparency)
+- Handles labor protection matters (wage/hour, workplace safety)
+- Assists in closing unlicensed cannabis operations
 
 ### NYC Zoning Restrictions:
 - Cannabis retail allowed in most commercial zones
@@ -204,7 +208,6 @@ OCM regulations require 500-foot distance from schools. Initial regulatory langu
 
 ### NYC Reporting:
 - Coordinate with NYC agencies
-- DCWP registration renewal (separate from OCM)
 - NYC tax reporting requirements
 
 ---
@@ -438,7 +441,7 @@ OCM offers multiple retail license types, each with different application proces
 - Obtain Certificate of Occupancy (CO) - NYC DOB
 - Complete BioTrack/Metrc integration and testing
 - Pass OCM pre-opening inspection
-- Obtain any local permits (DCWP, health department, etc.)
+- Obtain any local permits (health department, etc.) — Note: No separate DCWP cannabis permit required
 
 ---
 

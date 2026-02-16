@@ -58,7 +58,7 @@ class StrategyReviewer:
             violations.append(
                 {
                     "type": "prohibited_slang",
-                    "detail": f"检测到禁用俚语: {', '.join(sorted(slang_hits))}",
+                    "detail": f"Prohibited slang violation (检测到禁用俚语): {', '.join(sorted(slang_hits))}",
                     "suggestion": "移除俚语表达，改为中性合规描述。",
                 }
             )
@@ -68,7 +68,7 @@ class StrategyReviewer:
             violations.append(
                 {
                     "type": "medical_claim",
-                    "detail": f"检测到医疗承诺表达: {', '.join(sorted(medical_hits))}",
+                    "detail": f"Medical claim violation (检测到医疗承诺表达): {', '.join(sorted(medical_hits))}",
                     "suggestion": "删除疗效/治愈类表述，避免医疗承诺。",
                 }
             )
@@ -78,7 +78,7 @@ class StrategyReviewer:
             violations.append(
                 {
                     "type": "cartoon_element",
-                    "detail": f"检测到儿童导向元素: {', '.join(sorted(cartoon_hits))}",
+                    "detail": f"Youth-directed content violation (检测到儿童导向元素): {', '.join(sorted(cartoon_hits))}",
                     "suggestion": "移除卡通或未成年人导向元素。",
                 }
             )

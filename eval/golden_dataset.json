@@ -1,0 +1,176 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-02-15",
+  "description": "Cannabis Law Assistant — 黄金数据集（20 题）",
+  "pass_criteria": {
+    "keyword_rate_min": 0.6,
+    "llm_score_min": 3.0,
+    "questions_pass_min": 15,
+    "overall_llm_min": 3.5,
+    "consistency_pass_min": 16
+  },
+  "test_cases": [
+    {
+      "id": "Q01",
+      "category": "A-许可证",
+      "question": "What state agency issues cannabis retail dispensary licenses in New York?",
+      "required_keywords": ["OCM", "Office of Cannabis Management"],
+      "ground_truth": "Cannabis retail dispensary licenses in New York are issued by the Office of Cannabis Management (OCM), a state-level agency. DCWP (NYC Department of Consumer and Worker Protection) does not issue cannabis licenses but participates in joint enforcement inspections.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q02",
+      "category": "A-许可证",
+      "question": "Does NYC require a separate local registration for cannabis retailers beyond the state license?",
+      "required_keywords": ["DCWP", "registration"],
+      "ground_truth": "NYC does not require a specialized cannabis license from DCWP. Cannabis retail licenses are issued exclusively by OCM at the state level. DCWP does not issue cannabis licenses — its role is joint enforcement inspections, consumer protection oversight, and labor protection. However, retailers must still obtain city-level approvals from DOB (Certificate of Occupancy) and FDNY (fire safety inspection). There is no separate DCWP cannabis registration requirement.",
+      "expected_intent": "general_query",
+      "known_issue": true
+    },
+    {
+      "id": "Q03",
+      "category": "A-许可证",
+      "question": "Within how many days of hiring must cannabis employees complete OCM responsible work training?",
+      "required_keywords": ["30", "days", "training"],
+      "ground_truth": "All cannabis industry employees must complete OCM's Responsible Workforce Training Program within 30 days of hire. Training includes a free online video course, at least 2 hours of employer-provided position-specific training, and at least 1 hour of implicit bias and cultural competency training.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q04",
+      "category": "A-许可证",
+      "question": "How far in advance must cannabis licensees submit renewal applications before expiration?",
+      "required_keywords": ["60", "120", "days", "renewal"],
+      "ground_truth": "Cannabis licensees must submit renewal applications 60 to 120 days before license expiration. Late submissions may result in operational gaps or administrative suspension. All temporary CAURD and adult-use licenses have been extended to December 31, 2026.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q05",
+      "category": "B-包装标签",
+      "question": "What child-resistant packaging standard must cannabis products comply with?",
+      "required_keywords": ["ASTM", "D3475", "child-resistant"],
+      "ground_truth": "All cannabis products must comply with ASTM D3475 (Standard Classification for Child-Resistant Packaging). Packaging must be opaque or translucent, resealable and maintain child resistance after each opening for multi-serving products. Single-use packages must be child-resistant but do not need to be resealable. Dispensaries must also provide child-resistant exit packaging.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q06",
+      "category": "B-包装标签",
+      "question": "What is the Universal Cannabis Symbol and what does it look like?",
+      "required_keywords": ["THC", "orange", "exclamation"],
+      "ground_truth": "The Universal Cannabis Symbol is a standardized NYS warning symbol developed by OCM. It consists of an orange exclamation mark in an orange circle on a white background with the text 'THC'. It must appear on the front of every cannabis product package at a minimum size of 0.375 × 0.375 inches.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q07",
+      "category": "B-包装标签",
+      "question": "Are cannabis dispensaries allowed to repackage products received from manufacturers?",
+      "required_keywords": ["re-package", "original", "manufacturer"],
+      "ground_truth": "No. Repackaging is prohibited. Dispensaries may not re-package cannabis products. All products must be sold in the original manufacturer packaging that has been pre-approved and labeled in compliance with 9 NYCRR Part 119.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q08",
+      "category": "B-包装标签",
+      "question": "What visual elements are prohibited on cannabis packaging?",
+      "required_keywords": ["cartoon", "youth", "candy", "food", "bright"],
+      "ground_truth": "Cannabis packaging must not use: cartoon characters or toys that appeal to persons under 21, bright primary colors in a manner that appeals to children (e.g., bright candy-like colors), depictions of persons under 21, imitation of food or candy branding, celebrity or influencer endorsements, or any logo or mascot primarily associated with products marketed to children.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q09",
+      "category": "C-广告营销",
+      "question": "What percentage of a cannabis ad's audience must be 21 or older?",
+      "required_keywords": ["90", "percent", "21"],
+      "ground_truth": "At least 90% of the audience of any cannabis advertisement must be 21 years of age or older. This applies to all media channels including digital, print, television, radio, and outdoor advertising. Licensees must be able to demonstrate compliance with audience composition requirements.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q10",
+      "category": "C-广告营销",
+      "question": "What distance must cannabis ads maintain from schools and daycare centers?",
+      "required_keywords": ["500", "feet", "school"],
+      "ground_truth": "Cannabis advertising must maintain a minimum distance of 500 feet from schools, daycare centers, playgrounds, and youth activity centers. This applies to all outdoor advertising including billboards, signage, and posters visible from a public right-of-way.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q11",
+      "category": "C-广告营销",
+      "question": "What types of characters or themes are banned in cannabis advertising?",
+      "required_keywords": ["cartoon", "children", "youth", "characters"],
+      "ground_truth": "Cannabis advertising is banned from using: cartoon characters, mascots, or animated figures that primarily appeal to children or youth; themes, imagery, or language directed at persons under 21; celebrities or influencers primarily known for appealing to youth; and any content that implies cannabis use is safe or beneficial for minors.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q12",
+      "category": "C-广告营销",
+      "question": "What is the outdoor billboard compliance deadline for cannabis advertising?",
+      "required_keywords": ["2026", "February", "24", "billboard"],
+      "ground_truth": "The outdoor billboard compliance deadline for cannabis advertising is February 24, 2026. All cannabis outdoor billboard advertisements must be brought into full compliance with OCM advertising regulations by this date. Non-compliant billboards must be removed or modified.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q13",
+      "category": "D-违规罚则",
+      "question": "What administrative penalties can cannabis licensees face for violations?",
+      "required_keywords": ["warning", "fine", "revocation", "suspension"],
+      "ground_truth": "Cannabis licensees can face administrative penalties including: warning letters for minor first-time violations, fines (amounts vary based on violation severity), license suspension (temporary closure during investigation or remediation period), and license revocation (permanent loss of license for serious or repeated violations). Multiple violations escalate penalty severity.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q14",
+      "category": "D-违规罚则",
+      "question": "What are the consequences of selling cannabis without a license in New York?",
+      "required_keywords": ["without a license", "fine", "criminal", "padlock"],
+      "ground_truth": "Selling cannabis without a license in New York is subject to severe consequences under OCM enforcement powers: daily fines up to $10,000 per day (escalating to $40,000/day after a cease-and-desist order), revenue-based fines of 5 times illegal sales revenue, Padlock Orders (emergency store closure), product seizure, and criminal prosecution referral. These are enforced through multi-agency operations including Operation Padlock.",
+      "expected_intent": "general_query",
+      "known_issue": true
+    },
+    {
+      "id": "Q15",
+      "category": "D-违规罚则",
+      "question": "Under what circumstances can a cannabis license be revoked or suspended?",
+      "required_keywords": ["revok", "suspend", "violation", "license"],
+      "ground_truth": "A cannabis license can be revoked or suspended under circumstances including: repeated or serious regulatory violations, sales to minors, operating outside license scope, failure to maintain required records, false statements in license applications, loss of required qualifications (e.g., Labor Peace Agreement), failure to pay required fees, or criminal conviction of a licensee or key personnel.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q16",
+      "category": "E-运营安全",
+      "question": "What FDNY fire safety requirements apply to cannabis storage?",
+      "required_keywords": ["FDNY", "fire", "MAQ", "sprinkler", "storage"],
+      "ground_truth": "FDNY fire safety requirements for cannabis storage include: compliance with Maximum Allowable Quantities (MAQ) for combustible and flammable materials, sprinkler system requirements for storage areas exceeding MAQ thresholds, proper ventilation and fire suppression systems, storage in approved cabinets or rooms for concentrated cannabis products, fire safety inspections and approval certificates, and compliance with NYC Fire Code hazardous materials storage provisions.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q17",
+      "category": "E-运营安全",
+      "question": "What laboratory testing requirements must cannabis products pass before sale?",
+      "required_keywords": ["laboratory", "test", "potency", "contaminant"],
+      "ground_truth": "Cannabis products must pass laboratory testing by an OCM-licensed testing facility before sale. Required tests include: cannabinoid potency (THC, CBD content verification), pesticide residue screening, heavy metals testing (arsenic, cadmium, lead, mercury), microbial contaminant testing (E. coli, Salmonella, yeast, mold), mycotoxin screening, residual solvent testing for extracts/concentrates, and water activity measurement. Results documented in a Certificate of Analysis (COA) linked via QR code on the product label.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q18",
+      "category": "E-运营安全",
+      "question": "What labor protections exist for cannabis employees in New York?",
+      "required_keywords": ["labor", "wage", "worker", "employee", "protection"],
+      "ground_truth": "Labor protections for cannabis employees in New York include: mandatory Labor Peace Agreement guaranteeing organizing rights, wage and hour compliance oversight by DCWP, workplace safety standards enforced by DCWP, anti-discrimination policies, right to complete OCM-mandated training within 30 days of hire, and protections under New York State labor laws including minimum wage requirements. Employers must maintain drug-free, smoke-free, and alcohol-free workplaces.",
+      "expected_intent": "general_query"
+    },
+    {
+      "id": "Q19",
+      "category": "F-策略审查",
+      "question": "Please review: 'Get high with our stoner products! Great for everyone including kids!'",
+      "required_keywords": ["stoner", "kid", "prohibited", "violation"],
+      "ground_truth": "This marketing copy contains multiple violations under OCM cannabis advertising regulations: (1) 'Get high' and 'stoner' are prohibited slang terms — a prohibited slang violation must be flagged; (2) 'including kids' is a prohibited youth-directed element — a youth-directed content violation must be flagged. The review must identify both violations and suggest removing the slang and youth-oriented language.",
+      "expected_intent": "strategy_review"
+    },
+    {
+      "id": "Q20",
+      "category": "F-策略审查",
+      "question": "Please review: 'Our cannabis products cure anxiety and treat depression naturally!'",
+      "required_keywords": ["cure", "treat", "medical claim", "violation"],
+      "ground_truth": "This marketing copy violates OCM cannabis advertising regulations (Part 129) by making prohibited medical claims: (1) 'cure anxiety' is a medical claim violation — cannabis advertising may not claim curative or therapeutic effects; (2) 'treat depression' is a therapeutic claim violation — implying medicinal efficacy is prohibited under Part 129. The copy must remove all medical claims and replace them with permissible language about product characteristics without health benefit assertions.",
+      "expected_intent": "strategy_review"
+    }
+  ]
+}

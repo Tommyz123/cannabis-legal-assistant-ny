@@ -1,6 +1,6 @@
 # Context - 项目索引与状态
 
-最后更新: 2026-02-13 | 项目阶段: [Production-Ready Prototype + Accuracy Eval]
+最后更新: 2026-02-15 | 项目阶段: [Production-Ready Prototype + Eval Engineering]
 
 ## 技术栈
 Python + ChromaDB (向量) + BM25 (关键词) + OpenAI (GPT-4o-mini + text-embedding-3-small) + LangGraph + FastAPI
@@ -55,15 +55,32 @@ Python + ChromaDB (向量) + BM25 (关键词) + OpenAI (GPT-4o-mini + text-embed
 ### main.py — CLI 入口
 - python main.py（交互模式）/ python main.py "问题"（单次查询）
 
-### eval_accuracy.py — 准确性评估脚本（2026-02-13 新增）
-- 20 题 × N 轮（默认3轮）准确性评估，双重评判：关键词命中 + GPT-4o-mini 打分 1-5
+### eval/golden_dataset.json — 黄金数据集（2026-02-15 新建）
+- 20 道测试题，独立于代码，人工可直接编辑
+- 包含 version、pass_criteria（通过阈值）、test_cases（id/category/question/required_keywords/ground_truth/expected_intent）
+- 新增/修改题目只改此 JSON，不需要动 Python 代码
+
+### eval_accuracy.py — 准确性评估脚本（2026-02-13 新增，2026-02-15 改造）
+- 从 `eval/golden_dataset.json` 加载测试题和阈值（不再硬编码）
+- `PassCriteria` dataclass：keyword_rate_min / llm_score_min / questions_pass_min / overall_llm_min / consistency_pass_min
+- `TestCase` dataclass：含 `known_issue: bool`（区分系统缺陷 vs eval 配置问题）
+- `RoundResult` dataclass：含 `intent_match: bool`（每轮 intent 比对）
+- `QuestionResult` dataclass：含 `intent_accuracy: float`
+- `load_dataset(json_path)` → `(list[TestCase], PassCriteria)`（同时返回测试题和阈值）
+- `load_test_cases(json_path)` → `list[TestCase]`（向后兼容 wrapper）
 - `build_agent()` → `tuple[AgentCore, OpenAI]`
-- `keyword_check(answer, keywords)` → `(hits, rate)`
-- `llm_judge(answer, ground_truth, question, client)` → `int` (1-5)
-- `consistency_score(rounds)` → `float` (Jaccard 均值)
-- `run_question(agent, llm_client, tc, n_rounds)` → `QuestionResult`
-- `generate_report(results, n_rounds)` → 写 `reports/ACCURACY_EVAL_REPORT.md`
+- `run_question(agent, llm_client, tc, n_rounds, criteria)` → `QuestionResult`
+- `generate_report(results, n_rounds, criteria)` → 写 `reports/ACCURACY_EVAL_REPORT.md` + 归档
+- 报告 8 个 Section：Overview / Summary（动态阈值）/ Category / Bottom3 / Consistency / Findings（known_issue 分离）/ FAIL详情 / Intent Accuracy
 - 运行：`venv/Scripts/python.exe eval_accuracy.py [--rounds N]`
+
+### C:\Users\zhi89\Desktop\llm_eval_framework\ — 通用 Eval 框架（2026-02-15 新建）
+- 独立工具包，与项目解耦，可复制到任意新项目使用
+- `core.py`：通用层（PassCriteria / TestCase / RoundResult / QuestionResult / load_dataset / keyword_check / llm_judge / consistency_score / generate_report）— 禁止改动
+- `runner_template.py`：项目适配层，只改 STEP1 `build_agent()` 和 STEP2 `get_answer()`
+- `golden_dataset_template.json`：数据集模板
+- `README.md`：AI 可读的接入指南（含黄金数据集设置方法、常见坑）
+- 接入新项目：将 core.py 复制为 `{project}/core.py`，runner_template.py 改名为 `eval_accuracy.py`
 
 ### comprehensive_eval.py — 自动化基准测试
 - 用于生成 REAL_EVALUATION_REPORT.md
@@ -77,7 +94,13 @@ Python + ChromaDB (向量) + BM25 (关键词) + OpenAI (GPT-4o-mini + text-embed
 - GET /api/health | POST /api/session | DELETE /api/session/{id} | POST /api/chat
 - CORS 已启用 / lifespan 初始化
 
+### src/agent/reviewer.py — StrategyReviewer / ReviewResult（2026-02-15 更新）
+- violation detail 字段改为双语格式：`"Prohibited slang violation (检测到禁用俚语): ..."` 等
+- 其余接口不变
+
 ### reports/ — 测试与评估报告
+- `reports/ACCURACY_EVAL_REPORT.md`：最新一次准确性评估（每次运行覆盖）
+- `reports/archive/`：历史评估报告，按时间戳命名（ACCURACY_EVAL_YYYY-MM-DD_HHmm.md）
 - `reports/REALENV_TEST_REPORT.md`：2026-02-13 真实环境 E2E 测试报告（11 场景，10 passed 1 xfailed）
 
 ### knowledge/ — 法律法规源文件 (Markdown)

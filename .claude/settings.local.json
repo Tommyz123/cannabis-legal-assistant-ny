@@ -7,7 +7,11 @@
       "Bash(PYTHONIOENCODING=utf-8 \"$WIN_PYTHON\" -c:*)",
       "Bash(source:*)",
       "Bash(python main.py:*)",
-      "Bash(./venv/Scripts/python.exe:*)"
+      "Bash(./venv/Scripts/python.exe:*)",
+      "Bash(venv/Scripts/python.exe:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "Bash(SID=\"43738138-94b5-4ea9-a519-9a03b2df7541\")"
     ]
   }
 }

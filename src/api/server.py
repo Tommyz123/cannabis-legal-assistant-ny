@@ -5,12 +5,18 @@ from __future__ import annotations
 from contextlib import asynccontextmanager
 from typing import Optional
 
+import os
+
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from openai import OpenAI
 from pydantic import BaseModel
 
 from src.agent import AgentCore, ConversationManager, IntentClassifier, StrategyReviewer
 from src.retrieval import RetrievalPipeline
+
+load_dotenv()
 
 
 class ChatRequest(BaseModel):
@@ -35,11 +41,13 @@ def _build_agent() -> AgentCore:
     intent = IntentClassifier()
     conversation = ConversationManager()
     reviewer = StrategyReviewer()
+    llm_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     return AgentCore(
         retrieval_pipeline=retrieval,
         intent_classifier=intent,
         conversation_manager=conversation,
         strategy_reviewer=reviewer,
+        llm_client=llm_client,
     )
 
 
